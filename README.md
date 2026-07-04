@@ -169,12 +169,10 @@ BSE tickers use the `.BO` suffix (e.g. `RELIANCE.BO`).
 ## Screenshots
 
 
-```
+## Screenshots
+
 ![Search](docs/screenshots/search.png)
-
 ![Health Score](docs/screenshots/health_score.png)
-```
-
 ---
 
 ## Limitations and what was improved in V2
