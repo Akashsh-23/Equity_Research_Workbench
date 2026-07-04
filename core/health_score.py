@@ -1,24 +1,13 @@
 def calculate_health_score(ratios):
-    """
-    Calculate a 0-100 Financial Health Score from financial ratios.
-    
-    Each category is scored independently, then combined using weights.
-    Thresholds are based on general Indian market benchmarks.
-    
-    Args:
-        ratios: dict returned by calculate_all_ratios()
-    
-    Returns:
-        dict with overall score, category scores, and grade
-    """
+
+    #Calculate a 0-100 Financial Health Score from financial ratios.
+
 
     def clamp(value, min_val=0, max_val=100):
         return max(min_val, min(max_val, value))
 
-    # ----------------------------------------------------------------
+ 
     # 1. PROFITABILITY SCORE (weight: 30%)
-    # How well does the company turn revenue into profit?
-    # ----------------------------------------------------------------
     p_score = 0
 
     net_margin = ratios.get("Net Margin %", 0)
@@ -41,10 +30,8 @@ def calculate_health_score(ratios):
 
     profitability_score = clamp(p_score)
 
-    # ----------------------------------------------------------------
     # 2. LIQUIDITY SCORE (weight: 20%)
-    # Can it pay its short-term obligations?
-    # ----------------------------------------------------------------
+ 
     l_score = 0
 
     current_ratio = ratios.get("Current Ratio", 0)
@@ -61,10 +48,9 @@ def calculate_health_score(ratios):
 
     liquidity_score = clamp(l_score)
 
-    # ----------------------------------------------------------------
+   
     # 3. LEVERAGE SCORE (weight: 20%)
-    # Lower debt = higher score
-    # ----------------------------------------------------------------
+
     lev_score = 0
 
     de_ratio = ratios.get("Debt to Equity", 0)
@@ -81,10 +67,8 @@ def calculate_health_score(ratios):
 
     leverage_score = clamp(lev_score)
 
-    # ----------------------------------------------------------------
     # 4. GROWTH SCORE (weight: 15%)
-    # Is the business actually expanding?
-    # ----------------------------------------------------------------
+
     g_score = 0
 
     revenue_growth = ratios.get("Revenue Growth %", 0)
@@ -96,10 +80,9 @@ def calculate_health_score(ratios):
 
     growth_score = clamp(g_score)
 
-    # ----------------------------------------------------------------
+ 
     # 5. CASH FLOW SCORE (weight: 15%)
-    # Is the profit backed by real cash?
-    # ----------------------------------------------------------------
+    
     cf_score = 0
 
     fcf = ratios.get("Free Cash Flow (Cr)", 0)
@@ -110,9 +93,8 @@ def calculate_health_score(ratios):
 
     cashflow_score = clamp(cf_score)
 
-    # ----------------------------------------------------------------
     # FINAL WEIGHTED SCORE
-    # ----------------------------------------------------------------
+
     overall = (
         profitability_score * 0.30 +
         liquidity_score     * 0.20 +
