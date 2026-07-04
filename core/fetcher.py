@@ -12,7 +12,7 @@ def get_company_info(ticker_symbol):
     ticker = yf.Ticker(ticker_symbol)
     info = ticker.info
 
-    # We only pull what we actually need — nothing extra
+    
     company_data = {
         "name":         info.get("longName", "N/A"),
         "sector":       info.get("sector", "N/A"),
@@ -35,9 +35,9 @@ def get_financials(ticker_symbol):
     """
     ticker = yf.Ticker(ticker_symbol)
 
-    income_statement = ticker.financials        # revenue, profit, etc.
-    balance_sheet    = ticker.balance_sheet     # assets, liabilities, equity
-    cash_flow        = ticker.cashflow          # operating, investing, financing
+    income_statement = ticker.financials        
+    balance_sheet    = ticker.balance_sheet     
+    cash_flow        = ticker.cashflow       
 
     return {
         "income_statement": income_statement,
