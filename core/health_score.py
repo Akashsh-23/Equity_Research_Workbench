@@ -1,6 +1,6 @@
 def calculate_health_score(ratios):
 
-    #Calculate a 0-100 Financial Health Score from financial ratios.
+    #0-100 Financial Health Score from financial ratios.
 
 
     def clamp(value, min_val=0, max_val=100):
