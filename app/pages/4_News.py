@@ -15,7 +15,7 @@ name   = info["name"].split()[0]   # Use first word e.g. "Reliance"
 st.subheader(f"Recent news — {info['name']}")
 
 # Use GNews free API (no key needed for basic use)
-url = f"https://gnews.io/api/v4/search?q={name}+stock&lang=en&country=in&max=10&apikey=demo"
+url = f"https://gnews.io/api/v4/search?q={name}+stock&lang=en&country=in&max=10&apikey=your_actual_key_here"
 
 try:
     response = requests.get(url, timeout=10)
