@@ -19,7 +19,7 @@ st.subheader(st.session_state["info"]["name"])
 
 with st.spinner("Calculating health score..."):
     try:
-        # Use cached ratios if available, else recalculate
+        
         if "ratios" in st.session_state:
             ratios = st.session_state["ratios"]
         else:
@@ -35,14 +35,14 @@ with st.spinner("Calculating health score..."):
         grade   = score["grade"]
         cats    = score["category_scores"]
 
-        # Color based on score
+
         if   overall >= 80: color = "#16a34a"
         elif overall >= 65: color = "#2563eb"
         elif overall >= 50: color = "#d97706"
         elif overall >= 35: color = "#ea580c"
         else:               color = "#dc2626"
 
-        # Big score display
+ 
         col1, col2 = st.columns([1, 2])
         with col1:
             st.markdown(f"""
@@ -57,7 +57,7 @@ with st.spinner("Calculating health score..."):
             """, unsafe_allow_html=True)
 
         with col2:
-            # Radar / bar chart of categories
+         
             fig = go.Figure()
             fig.add_trace(go.Bar(
                 x=list(cats.keys()),
@@ -81,7 +81,7 @@ with st.spinner("Calculating health score..."):
 
         st.divider()
 
-        # Methodology — this is what impresses interviewers
+       
         st.subheader("How the score is calculated")
         st.markdown("""
         | Category | Weight | What it measures |
